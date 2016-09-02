@@ -2,7 +2,7 @@ var bootState = {
 
   preload: function() {
     //assets we'll use in the loading screen
-    //this.load.image( etc
+    util.loadBitFont("trebuchetms15", "trebuchet_15px", "fnt");
   },
 
   create: function(){

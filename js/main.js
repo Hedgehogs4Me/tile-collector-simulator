@@ -1,11 +1,6 @@
 //temporary, eventually make it dependent on window size
 var scalefactor = 4;
 
-//This will need a bunch of shit for recalculating stuff later
-function resizeGame() {
-  game.scale.setGameSize(window.innerWidth/scalefactor, window.innerHeight/scalefactor);
-}
-
 //Canvas is unfortunately necessary for nearest-neighbour
 //Everything past that is defaults except for the last false, which is anti-aliasing
 var game = new Phaser.Game(window.innerWidth/scalefactor, window.innerHeight/scalefactor, Phaser.CANVAS, null, null, false, false);
@@ -21,4 +16,4 @@ game.state.add("play", playState);
 //called there and not just... when needed. For now, this:
 game.state.start("boot");
 
-window.addEventListener('resize', resizeGame, true);
+window.addEventListener('resize', util.resizeGame, true);

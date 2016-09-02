@@ -1,15 +1,19 @@
 var loadState = {
 
-  //fontname is what it'll be called when you use it later, pathname is what it's called in the files
-  //type should be fnt or xml, file extension for description stuff
-  loadbitfont: function (fontname, pathname, type){
-    game.load.bitmapFont(fontname, 'assets/fonts/'+pathname+'.png', 'assets/fonts/'+pathname+'.'+type);
+  fileComplete: function (progress, cacheKey, success, totalLoaded, totalFiles) {
+    //put a try/catch in this someday
+    this.loadamount.setText(progress+"%");
+  },
+
+  create: function(){
+    game.load.onFileComplete.add(fileComplete, this);
+    this.loadamount = game.add.bitmapText(10, 10, "trebuchetms15", "Loading...", 45);
   },
 
   preload: function() {
 
     //fonts
-    this.loadbitfont("trebuchetms15", "trebuchet_15px", "fnt");
+    //none yet, see boot.js
 
     game.load.spritesheet('player', 'assets/images/player.png', 16, 24);
 
