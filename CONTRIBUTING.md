@@ -1,0 +1,4 @@
+Contributing
+============
+
+Comment a lot.
