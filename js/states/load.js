@@ -5,12 +5,11 @@ var loadState = {
     this.loadamount.setText(progress+"%");
   },
 
-  create: function(){
-    game.load.onFileComplete.add(fileComplete, this);
-    this.loadamount = game.add.bitmapText(10, 10, "trebuchetms15", "Loading...", 45);
-  },
-
   preload: function() {
+    game.load.onFileComplete.add(this.fileComplete, this);
+    this.loadamount = game.add.bitmapText(10, 10, "trebuchetms15", "Loading...", 45);
+
+    //I guess we're loading stuff here? I have no idea what I'm doing
 
     //fonts
     //none yet, see boot.js
@@ -22,8 +21,8 @@ var loadState = {
   },
 
   create: function(){
-    //Skipping right to the game for now, no menu.
-    //But this is where a menu would go once we're ready to add that in
+
+    //When we have a menu state, make this go there.
     game.state.start("play");
   }
 
